@@ -1,0 +1,6 @@
+# When using Helm to install the csi-driver-smb CSI Driver for SMB Shares in a Microk8s environment, 
+# use this file to make sure that csi-driver-smb uses the Microk8s Snap location for kubelet.
+#
+# e.g. helm install csi-driver-smb csi-driver-smb/csi-driver-smb -f ./csi-driver-smb/microk8s-values.yml <other args>
+linux:
+  kubelet: /var/snap/microk8s/common/var/lib/kubelet

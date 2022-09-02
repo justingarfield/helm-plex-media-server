@@ -1,0 +1,39 @@
+# This PersistentVolumeClaim (plex-data-pvc) reserves its corresponding PersistentVolume 
+# (plex-data-pv) so that it will be pre-existing to pass into the K8s-at-home Helm Chart.
+#
+# Note that you should set a sane value for storage here. I chose 500GB on a 1TB drive.
+# This value can always be raised to expand in the future if needed, but 500GB should be plenty.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: plex-data-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  volumeMode: Filesystem
+  storageClassName: ""
+  volumeName: plex-data-pv
+  resources:
+    requests:
+      storage: 500Gi
+
+---
+
+# This PersistentVolumeClaim (media-pvc) reserves its corresponding PersistentVolume 
+# (media-pv) so that it will be pre-existing to pass into the K8s-at-home Helm Chart.
+# 
+# Note that it only specifies 1Mi for storage. That's because this is a ReadOnlyMany
+# PV that is backed by and SMB Share, so we just need any random value here.
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: media-pvc
+spec:
+  accessModes:
+    - ReadOnlyMany
+  volumeMode: Filesystem
+  storageClassName: smb
+  volumeName: media-pv
+  resources:
+    requests:
+      storage: 1Mi

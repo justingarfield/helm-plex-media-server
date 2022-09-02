@@ -1,0 +1,66 @@
+# This persistent volume (plex-data-pv) points to wherever you want to store your Plex Media Server data
+# Things that get persisted here are the PMS settings, generated thumbnails, poster/artwork, etc.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: plex-data-pv
+spec:
+  capacity:
+    storage: 500Gi
+  volumeMode: Filesystem
+  accessModes:
+  - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: ""
+  hostPath:
+    path: /mnt/sandisk-ssd/plex-data
+    type: Directory
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+      - matchExpressions:
+        - key: kubernetes.io/hostname
+          operator: In
+          values:
+          - thetower900
+
+---
+
+# This persistent volume (media-pv) points to wherever you host your Media files.
+#
+# In this case, it's pointing to an SMB Share on my Synology NAS, using a 3rd party 
+# SMB CSI driver named csi-driver-smb. Ensure that the volumeHandle is unique if adding
+# more than one SMB Share across PVs.
+#
+# Notice that it's ReadOnlyMany. Plex shouldn't need write-access to these files (unless 
+# you want to allow Media Deletion via the Plex APIs / UI, which I wouldn't recommend)
+# Things like Radarr, Sonarr, etc. should be managing your media for you.
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: media-pv
+spec:
+  capacity:
+    storage: 1Mi
+  accessModes:
+    - ReadOnlyMany
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: smb
+  mountOptions:
+    - dir_mode=0777
+    - file_mode=0777
+    - uid=1001
+    - gid=1001
+    - noperm
+    - mfsymlinks
+    - cache=strict
+    - noserverino  # required to prevent data corruption
+  csi:
+    driver: smb.csi.k8s.io
+    readOnly: true
+    volumeHandle: unique-volumeid  # make sure it's a unique id in the cluster
+    volumeAttributes:
+      source: "//192.168.65.2/Media"
+    nodeStageSecretRef:
+      name: smbcreds
+      namespace: plex

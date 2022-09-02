@@ -1,0 +1,199 @@
+env:
+  TZ: "America/New York"
+
+  # General
+  PLEX_PREFERENCE_1: "FriendlyName=Pi Pi+"
+  # PLEX_PREFERENCE_XX: "sendCrashReports=1" # Send crash reports to Plex
+  # PLEX_PREFERENCE_XX: "PushNotificationsEnabled=0" # Push Notifications
+  PLEX_PREFERENCE_2: "logDebug=0" # Plex Media Server debug logging
+  # PLEX_PREFERENCE_XX: "LogVerbose=0" # Plex Media Server verbose logging
+  # PLEX_PREFERENCE_XX: "ButlerUpdateChannel=Public" # Server update Channel ('Public' or 'Beta')
+
+  # Remote Access
+  # Note: I don't think it's possible to toggle the Remote Access button at this time
+  PLEX_PREFERENCE_3: "ManualPortMappingMode=1" # Manually specify public port
+  PLEX_PREFERENCE_4: "ManualPortMappingPort=32666" # Manually specified public port
+  PLEX_PREFERENCE_5: "WanTotalMaxUploadRate=30000" # Internet upload speed (0:Original (No limit)|40000:40 Mbps (4k)|30000:30 Mbps (4k)|25000:25 Mbps (4k)|20000:20 Mbps (1080p)|15000:15 Mbps (1080p)|12000:12 Mbps (1080p)|10000:10 Mbps (1080p)|8000:8 Mbps (1080p)|4000:4 Mbps (720p)|3000:3 Mbps (720p)|2000:2 Mbps (480p)|1500:1.5 Mbps (480p)|720:720 kbps|320:320 kbps)
+  PLEX_PREFERENCE_6: "WanPerStreamMaxUploadRate=10000" # Limit remote stream bitrate
+
+  # Agents
+  # Note: I don't think it's possible to configure this via ENV VARs
+
+  # Library
+  PLEX_PREFERENCE_7: "FSEventLibraryUpdatesEnabled=1" # Scan my library automatically
+  PLEX_PREFERENCE_8: "FSEventLibraryPartialScanEnabled=1" # Run a partial scan when changes are detected
+  PLEX_PREFERENCE_9: "watchMusicSections=1" # Include music libraries in automatic updates
+  PLEX_PREFERENCE_10: "ScheduledLibraryUpdatesEnabled=1" # Scan my library periodically
+  PLEX_PREFERENCE_11: "ScheduledLibraryUpdateInterval=43200" # Library scan interval
+  # PLEX_PREFERENCE_XX: "autoEmptyTrash=1" # Empty trash automatically after every scan
+  PLEX_PREFERENCE_12: "allowMediaDeletion=0" # Allow media deletion
+  PLEX_PREFERENCE_13: "OnDeckWindow=8" # Weeks to consider for Continue Watching
+  PLEX_PREFERENCE_14: "OnDeckLimit=8" # Maximum number of Continue Watching items which will appear
+  # PLEX_PREFERENCE_XX: "OnDeckIncludePremieres=1" # Include season premieres in Continue Watching
+  # PLEX_PREFERENCE_XX: "SmartShuffleMusic=1" # Enable smart shuffling on artists and smart music playlists
+  # PLEX_PREFERENCE_XX: "MusicSeparateAlbumTypes=1" # Group albums by type
+  # PLEX_PREFERENCE_XX: "ScannerLowPriority=0" # Run scanner tasks at a lower priority
+  PLEX_PREFERENCE_15: "GenerateBIFBehavior=asap" # Generate video preview thumbnails (never, scheduled, asap)
+  # PLEX_PREFERENCE_XX: "GenerateIntroMarkerBehavior=asap" # Generate intro video markers (never, scheduled, asap)
+  PLEX_PREFERENCE_16: "GenerateChapterThumbBehavior=asap" # Generate chapter thumbnails (never, scheduled, asap)
+  PLEX_PREFERENCE_17: "LoudnessAnalysisBehavior=asap" # Analyze audio tracks for loudness (never, scheduled, asap)
+  PLEX_PREFERENCE_18: "MusicAnalysisBehavior=asap" # Analyze audio tracks for sonic features (never, scheduled, asap)
+  # PLEX_PREFERENCE_XX: "LocationVisibility=1" # Location visibility (1=admin only, 2=everyone)
+
+  # Plugins
+  # PLEX_PREFERENCE_XX: "" # Region - Not sure how to set this yet, or if it's even possible
+  # PLEX_PREFERENCE_XX: "iTunesSharingEnabled=0" # Enable iTunes plugin
+  # PLEX_PREFERENCE_XX: "iTunesLibraryXmlPath=" # iTunes library XML path
+  # PLEX_PREFERENCE_XX: "disableCapabilityChecking=0" # Disable capability checking
+
+  # Network
+  PLEX_PREFERENCE_19: "EnableIPv6=0" # Enable server support for IPv6
+  PLEX_PREFERENCE_20: "secureConnections=0" # Secure connections
+  # PLEX_PREFERENCE_XX: "customCertificatePath=" # Custom certificate location
+  # PLEX_PREFERENCE_XX: "customCertificateKey=" # Custom certificate encryption key
+  # PLEX_PREFERENCE_XX: "customCertificateDomain=" # Custom certificate domain
+  PLEX_PREFERENCE_21: "PreferredNetworkInterface=en01" # Preferred network interface
+  PLEX_PREFERENCE_22: "DisableTLSv1_0=1" # Strict TLS configuration
+  PLEX_PREFERENCE_23: "GdmEnabled=0" # Enable local network discovery (GDM)
+  PLEX_PREFERENCE_24: "WanPerUserStreamCount=2" # Remote streams allowed per user
+  PLEX_PREFERENCE_25: "LanNetworksBandwidth=192.168.247.240/255.255.255.240,192.168.255.224/255.255.255.248,192.168.255.240/255.255.255.248,192.168.255.248/255.255.255.248" # LAN Networks
+  PLEX_PREFERENCE_26: "MinutesAllowedPaused=15" # Terminate Sessions Paused for Longer Than
+  PLEX_PREFERENCE_27: "TreatWanIpAsLocal=0" # Treat WAN IP As LAN Bandwidth
+  PLEX_PREFERENCE_28: "RelayEnabled=0" # Enable Relay
+  PLEX_PREFERENCE_29: "customConnections=http://192.168.247.244:32400" # Custom server access URLs
+  # PLEX_PREFERENCE_XX: "allowedNetworks=" # List of IP addresses and networks that are allowed without auth
+  # PLEX_PREFERENCE_XX: "WebHooksEnabled=1" # Webhooks
+
+  # Transcoder
+  # PLEX_PREFERENCE_XX: "TranscoderQuality=0" # Transcoder quality
+  # PLEX_PREFERENCE_XX: "TranscoderTempDirectory=/transcode" # Transcoder temporary directory
+  # PLEX_PREFERENCE_XX: "TranscoderThrottleBuffer=60" # Transcoder default throttle buffer
+  PLEX_PREFERENCE_30: "TranscoderH264BackgroundPreset=medium" # Background transcoding x264 preset
+  # PLEX_PREFERENCE_XX: "TranscoderToneMapping=1" # Enable HDR tone mapping
+  # PLEX_PREFERENCE_XX: "TranscoderCanOnlyRemuxVideo=0" # Disable video stream transcoding
+  # PLEX_PREFERENCE_XX: "HardwareAcceleratedCodecs=0" # Use hardware acceleration when available
+  # PLEX_PREFERENCE_XX: "HardwareAcceleratedEncoders=1" # Use hardware-accelerated video encoding
+  # PLEX_PREFERENCE_XX: "TranscodeCountLimit=0" # Maximum simultaneous video transcode
+
+  # Languages
+  # PLEX_PREFERENCE_XX: "" # Automatically select audio and subtitle tracks
+  # PLEX_PREFERENCE_XX: "" # Prefer audio tracks in
+  # PLEX_PREFERENCE_XX: "" # Subtitle mode
+  # PLEX_PREFERENCE_XX: "" # Prefer subtitles in
+
+  # DLNA
+  # PLEX_PREFERENCE_XX: "DlnaEnabled=0" # Enable the DLNA server
+  # PLEX_PREFERENCE_XX: "DlnaClientPreferences=" # DLNA client preferences
+  # PLEX_PREFERENCE_XX: "DlnaReportTimeline=1" # DLNA server timeline reporting
+  # PLEX_PREFERENCE_XX: "DlnaDefaultProtocolInfo=http-get:*:video/mpeg:*,http-get:*:video/mp4:*,http-get:*:video/vnd.dlna.mpeg-tts:*,http-get:*:video/avi:*,http-get:*:video/x-matroska:*,http-get:*:video/x-ms-wmv:*,http-get:*:video/wtv:*,http-get:*:audio/mpeg:*,http-get:*:audio/mp3:*,http-get:*:audio/mp4:*,http-get:*:audio/x-ms-wma*,http-get:*:audio/wav:*,http-get:*:audio/L16:*,http-get:*image/jpeg:*,http-get:*image/png:*,http-get:*image/gif:*,http-get:*image/tiff:*" # DLNA default protocol info
+  # PLEX_PREFERENCE_XX: "DlnaDeviceDiscoveryInterval=60" # DLNA media renderer discovery interval
+  # PLEX_PREFERENCE_XX: "DlnaAnnouncementLeaseTime=1800" # DLNA server announcement lease time
+  # PLEX_PREFERENCE_XX: "DlnaDescriptionIcons=png,jpeg;260x260,120x120,48x48" # DLNA server description icons
+
+  # Scheduled Tasks
+  PLEX_PREFERENCE_31: "ButlerStartHour=0" # Time at which tasks start to run
+  PLEX_PREFERENCE_32: "ButlerEndHour=6" # Time at which tasks stop running
+  # PLEX_PREFERENCE_XX: "ButlerTaskBackupDatabase=1" # Backup database every three days
+  # PLEX_PREFERENCE_XX: "ButlerDatabaseBackupPath=/config/Library/Application Support/Plex Media Server/Plug-in Support/Databases" # Backup directory
+  # PLEX_PREFERENCE_XX: "ButlerTaskOptimizeDatabase=1" # Optimize database every week
+  # PLEX_PREFERENCE_XX: "ButlerTaskCleanOldBundles=1" # Remove old bundles every week
+  # PLEX_PREFERENCE_XX: "ButlerTaskCleanOldCacheFiles=1" # Remove old cache files every week
+  # PLEX_PREFERENCE_XX: "ButlerTaskRefreshLocalMedia=1" # Refresh local metadata every three days
+  PLEX_PREFERENCE_33: "ButlerTaskRefreshLibraries=1" # Update all libraries during maintenance
+  # PLEX_PREFERENCE_XX: "ButlerTaskUpgradeMediaAnalysis=1" # Upgrade media analysis during maintenance
+  # PLEX_PREFERENCE_XX: "ButlerTaskRefreshPeriodicMetadata=1" # Refresh library metadata periodically
+  # PLEX_PREFERENCE_XX: "ButlerTaskDeepMediaAnalysis=1" # Perform extensive media analysis during maintenance
+  # PLEX_PREFERENCE_XX: "ButlerTaskReverseGeocode=1" # Fetch missing location names for items in photo sections
+  # PLEX_PREFERENCE_XX: "ButlerTaskGenerateAutoTags=1" # Analyze and tag photos
+
+  # Extras
+  # PLEX_PREFERENCE_XX: "CinemaTrailersType=1" # Choose Cinema Trailers from (0=All movies, 1=Only unwatched movies)
+  # PLEX_PREFERENCE_XX: "CinemaTrailersFromLibrary=1" # Include Cinema Trailers from movies in my library
+  PLEX_PREFERENCE_34: "CinemaTrailersFromTheater=1" # Include Cinema Trailers from new and upcoming movies in theaters
+  PLEX_PREFERENCE_35: "CinemaTrailersFromBluRay=1" # Include Cinema Trailers from new and upcoming movies on Blu-ray
+  # PLEX_PREFERENCE_XX: "CinemaTrailersPrerollID=" # Movie pre-roll video
+  # PLEX_PREFERENCE_XX: "GlobalMusicVideoPath=" # Global music videos path
+
+  # Other (not available in UI)
+  PLEX_PREFERENCE_36: "GenerateBIFFrameInterval=5" # The time (in seconds) between each video preview frame.
+  # PLEX_PREFERENCE_XX: "GenerateBIFKeyframesOnly=1" # When generating video preview thumbnails for playback, only look at keyframes in the video. Greatly speeds up processing and reduces CPU usage (default is 1).
+  # PLEX_PREFERENCE_XX: "ConfigurationUrl=http://127.0.0.1:32400/web" # Web Manager URL
+
+service:
+  main:
+    enabled: false
+    primary: true
+    # type: LoadBalancer
+    # loadBalancerIP: 192.168.3.50
+    ports:
+      http:
+        port: 32400
+    # externalTrafficPolicy: Local
+
+ingress:
+  # -- Enable and configure ingress settings for the chart under this key.
+  # @default -- See values.yaml
+  main:
+    enabled: false
+    ingressClassName: "nginx"
+    hosts:
+      - host: plex.poweris.life
+        paths:
+          - path: /
+
+# -- Enable devices to be discoverable
+hostNetwork: true
+
+dnsPolicy: "ClusterFirstWithHostNet"
+dnsConfig:
+  options:
+    - name: ndots
+      value: "1"
+
+# -- Configure persistence settings for the chart under this key.
+# @default -- See values.yaml
+persistence:
+  config:
+    enabled: true
+    type: pvc
+    existingClaim: plex-data-pvc
+
+  transcode:
+    enabled: true
+    medium: Memory
+    type: emptyDir
+
+  media:
+    enabled: true
+    type: pvc
+    readonly: true
+    existingClaim: media-pvc
+
+# -- Configure the Security Context for the Pod
+podSecurityContext: {}
+  # runAsUser: 1000
+  # runAsGroup: 1000
+  # fsGroup: 1000
+  # # Hardware acceleration using an Intel iGPU w/ QuickSync
+  # # These IDs below should be matched to your `video` and `render` group on the host
+  # # To obtain those IDs run the following grep statement on the host:
+  # # $ cat /etc/group | grep "video\|render"
+  # # video:x:44:
+  # # render:x:109:
+  # supplementalGroups:
+  # - 44
+  # - 109
+
+# -- Configure the resource requests and/or lcatimits for the Pod
+resources: {}
+  # requests:
+  #   # Hardware acceleration using an Intel iGPU w/ QuickSync and
+  #   # using intel-gpu-plugin (https://github.com/intel/intel-device-plugins-for-kubernetes)
+  #   gpu.intel.com/i915: 1
+  #   cpu: 200m
+  #   memory: 256Mi
+  # limits:
+  #   # Hardware acceleration using an Intel iGPU w/ QuickSync and
+  #   # using intel-gpu-plugin (https://github.com/intel/intel-device-plugins-for-kubernetes)
+  #   gpu.intel.com/i915: 1
+  #   memory: 4096Mi
